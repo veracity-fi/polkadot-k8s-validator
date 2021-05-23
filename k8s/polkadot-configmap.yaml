@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: polkadot-configmap
+  namespace: default
+data:
+  ARCHIVE_URL: "https://ksm-rocksdb.polkashots.io/kusama-7588480.RocksDb.7z"
+  CHAIN: "kusama"
+  TELEMETRY_URL: "wss://telemetry-backend.w3f.community/submit"
+  VALIDATOR_NAME: "veracity-fi/botman"

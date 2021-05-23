@@ -1,0 +1,13 @@
+FROM parity/polkadot
+USER root
+RUN apt-get update --allow-insecure-repositories && \
+      DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
+      DEBIAN_FRONTEND=noninteractive apt-get install -y \
+      jq xxd && \
+      apt-get autoremove -y && \
+      apt-get clean && \
+      find /var/lib/apt/lists/ -type f -not -name lock -delete;
+USER polkadot
+COPY entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
+CMD []
